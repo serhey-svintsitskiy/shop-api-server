@@ -1,0 +1,80 @@
+version: "3.5"
+
+services:
+    php:
+        build: ./docker/php
+        volumes:
+            - ./:/opt/project/
+        environment:
+            PHP_IDE_CONFIG: 'serverName=sapi.docker'
+            PROJECT_DOMAIN: 'http://localhost:8081'
+        expose:
+            - 9003
+            - 9090
+        depends_on:
+            - database
+            - rabbitmq
+        links:
+            - database
+        networks:
+            - default
+
+    #    database:
+    #        image: mysql:latest
+    #        restart: always
+    #        command: [ "--log_bin_trust_function_creators=1" ]
+    #        ports:
+    #            - "3337:3306"
+    #        environment:
+    #            MYSQL_DATABASE: 'sapi'
+    #            MYSQL_USER: 'sapi'
+    #            MYSQL_PASSWORD: 'passwd'
+    #            MYSQL_ROOT_PASSWORD: 'root'
+    #        networks:
+    #            - default
+    #        volumes:
+    #            - database_data:/var/lib/mysql
+    ###> doctrine/doctrine-bundle ###
+    database:
+        image: postgres:${POSTGRES_VERSION:-15}-alpine
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_DB: ${POSTGRES_DB:-app}
+            # You should definitely change the password in production
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-!ChangeMe!}
+            POSTGRES_USER: ${POSTGRES_USER:-app}
+
+            #    volumes:
+            #      - database_data:/var/lib/postgresql/data:rw
+            # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+            # - ./docker/db/data:/var/lib/postgresql/data:rw
+    ###< doctrine/doctrine-bundle ###
+
+    webserver:
+        build: ./docker/nginx
+        ports:
+            - "8081:80"
+        volumes:
+            - ./:/opt/project/
+        depends_on:
+            - php
+            - rabbitmq
+        links:
+            - php
+        networks:
+            - default
+
+    rabbitmq:
+        image: rabbitmq:3-management-alpine
+        ports:
+            - "5674:5672"
+            - "15674:15672"
+
+networks:
+    default:
+
+volumes:
+    ###> doctrine/doctrine-bundle ###
+    database_data:
+###< doctrine/doctrine-bundle ###

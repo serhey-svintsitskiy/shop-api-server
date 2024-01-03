@@ -1,0 +1,5 @@
+parameters:
+	level: 8
+	editorUrl: 'phpstorm://open?file=%%file%%&line=%%line%%'
+	paths:
+		- src
