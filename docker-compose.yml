@@ -6,7 +6,7 @@ services:
         volumes:
             - ./:/opt/project/
         environment:
-            PHP_IDE_CONFIG: 'serverName=sapi.docker'
+            PHP_IDE_CONFIG: 'serverName=shop-api-server.docker'
             PROJECT_DOMAIN: 'http://localhost:8081'
         expose:
             - 9003
