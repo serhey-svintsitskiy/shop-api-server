@@ -2,17 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\Public;
+namespace App\Controller\Admin\User;
 
 use App\ArgumentResolver\RequestPayloadValueResolver;
 use App\Attribute\OpenApi as AOA;
 use App\Entity\User;
-use App\Model\Public\User\UserListResponse;
-use App\Model\Public\User\UserModel;
-use Nelmio\ApiDocBundle\Annotation\Model;
-use OpenApi\Attributes as OA;
-use App\Model\Public\User\UserListRequest;
+use App\Model\Admin\User\UserListRequest;
+use App\Model\Admin\User\UserListResponse;
+use App\Model\Admin\User\UserModel;
 use App\Repository\Common\UserRepository;
+use OpenApi\Attributes as OA;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,8 +19,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\MapQueryString;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route(path: '/api/users')]
-#[OA\Tag(name: 'users')]
+#[Route(path: '/api/admin/users')]
+#[OA\Tag(name: 'user')]
 class UserController extends AbstractController
 {
     public function __construct(

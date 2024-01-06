@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model\Public\User;
+namespace App\Model\Admin\User;
 
 use App\Entity\User;
 use DateTimeInterface;

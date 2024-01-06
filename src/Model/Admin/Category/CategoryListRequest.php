@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Model\Public\User;
+namespace App\Model\Admin\Category;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-readonly class UserListRequest
+readonly class CategoryListRequest
 {
     public function __construct(
         #[Assert\PositiveOrZero]

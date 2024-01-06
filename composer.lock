@@ -1738,12 +1738,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "b4153009220948da67af9b25e4fc04abf3765942"
+                "reference": "ed742a7650bb3b8c70bda102876a184678fa2447"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/b4153009220948da67af9b25e4fc04abf3765942",
-                "reference": "b4153009220948da67af9b25e4fc04abf3765942",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/ed742a7650bb3b8c70bda102876a184678fa2447",
+                "reference": "ed742a7650bb3b8c70bda102876a184678fa2447",
                 "shasum": ""
             },
             "require": {
@@ -1841,9 +1841,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nelmio/NelmioApiDocBundle/issues",
-                "source": "https://github.com/nelmio/NelmioApiDocBundle/tree/master"
+                "source": "https://github.com/nelmio/NelmioApiDocBundle/tree/v4.15.2"
             },
-            "time": "2023-12-31T17:52:26+00:00"
+            "time": "2024-01-03T10:37:11+00:00"
         },
         {
             "name": "nelmio/cors-bundle",
@@ -3605,16 +3605,16 @@
         },
         {
             "name": "symfony/flex",
-            "version": "v2.4.2",
+            "version": "v2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/flex.git",
-                "reference": "67ee785f1aedada76461de7a7ec10cd7f8ff8d36"
+                "reference": "6b44ac75c7f07f48159ec36c2d21ef8cf48a21b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/flex/zipball/67ee785f1aedada76461de7a7ec10cd7f8ff8d36",
-                "reference": "67ee785f1aedada76461de7a7ec10cd7f8ff8d36",
+                "url": "https://api.github.com/repos/symfony/flex/zipball/6b44ac75c7f07f48159ec36c2d21ef8cf48a21b1",
+                "reference": "6b44ac75c7f07f48159ec36c2d21ef8cf48a21b1",
                 "shasum": ""
             },
             "require": {
@@ -3650,7 +3650,7 @@
             "description": "Composer plugin for Symfony",
             "support": {
                 "issues": "https://github.com/symfony/flex/issues",
-                "source": "https://github.com/symfony/flex/tree/v2.4.2"
+                "source": "https://github.com/symfony/flex/tree/v2.4.3"
             },
             "funding": [
                 {
@@ -3666,7 +3666,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-05T14:09:35+00:00"
+            "time": "2024-01-02T11:08:32+00:00"
         },
         {
             "name": "symfony/framework-bundle",
