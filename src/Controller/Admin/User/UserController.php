@@ -20,7 +20,7 @@ use Symfony\Component\HttpKernel\Attribute\MapQueryString;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(path: '/api/admin/users')]
-#[OA\Tag(name: 'user')]
+#[OA\Tag(name: 'users')]
 class UserController extends AbstractController
 {
     public function __construct(

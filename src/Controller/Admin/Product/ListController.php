@@ -2,15 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\Admin\Category;
+namespace App\Controller\Admin\Product;
 
 use App\ArgumentResolver\RequestPayloadValueResolver;
 use App\Attribute\OpenApi as AOA;
 use App\Entity\Category;
-use App\Model\Admin\Category\ListRequest;
-use App\Model\Admin\Category\ListResponse;
-use App\Model\Admin\Category\CategoryModel;
-use App\Repository\Common\CategoryRepository;
+use App\Entity\Product;
+use App\Model\Admin\Product\ListRequest;
+use App\Model\Admin\Product\ListResponse;
+use App\Model\Admin\Product\ProductModel;
+use App\Repository\Common\ProductRepository;
 use OpenApi\Attributes as OA;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,12 +20,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\MapQueryString;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route(path: '/api/admin/categories')]
-#[OA\Tag(name: 'categories')]
+#[Route(path: '/api/admin/products')]
+#[OA\Tag(name: 'products')]
 class ListController extends AbstractController
 {
     public function __construct(
-        private readonly CategoryRepository $categoryRepository,
+        private readonly ProductRepository $productRepository,
     ) {
     }
 
@@ -40,17 +41,17 @@ class ListController extends AbstractController
     ): Response {
         return $this->json(
             new ListResponse(
-                CategoryModel::fromCollection($this->categoryRepository->findAll())
+                ProductModel::fromCollection($this->productRepository->findAll())
             )
         );
     }
 
     #[Route(path: '/{id}', methods: [Request::METHOD_GET])]
-    #[AOA\ResponseOk(type: CategoryModel::class)]
+    #[AOA\ResponseOk(type: ProductModel::class)]
     public function getItem(
         #[MapEntity]
-        Category $category,
+        Product $product,
     ): Response {
-        return $this->json(CategoryModel::fromEntity($category));
+        return $this->json(ProductModel::fromEntity($product));
     }
 }

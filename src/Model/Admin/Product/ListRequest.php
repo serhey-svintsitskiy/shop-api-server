@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Model\Admin\Category;
+namespace App\Model\Admin\Product;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-readonly class CategoryListRequest
+readonly class ListRequest
 {
     public function __construct(
         #[Assert\PositiveOrZero]

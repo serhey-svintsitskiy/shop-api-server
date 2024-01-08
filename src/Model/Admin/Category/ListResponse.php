@@ -2,7 +2,7 @@
 
 namespace App\Model\Admin\Category;
 
-readonly class CategoryListResponse
+readonly class ListResponse
 {
     /** @param CategoryModel[] $items */
     public function __construct(

@@ -6,7 +6,7 @@ use App\Entity\Category;
 use App\Model\Admin\Category\CreateRequest;
 use App\Repository\Common\CategoryRepository;
 
-readonly class CreateCategoryService
+readonly class CreateService
 {
     public function __construct(
         private CategoryRepository $categoryRepository

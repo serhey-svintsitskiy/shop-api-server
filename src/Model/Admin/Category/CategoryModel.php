@@ -25,4 +25,16 @@ class CategoryModel
             $category->getUpdatedAt(),
         );
     }
+
+    /**
+     * @param Category[] $list
+     * @return self[]
+     */
+    public static function fromCollection(iterable $list): array
+    {
+        return array_map(
+            fn (Category $image) => self::fromEntity($image),
+            iterator_to_array($list)
+        );
+    }
 }

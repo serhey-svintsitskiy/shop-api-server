@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\Admin\Category;
+namespace App\Controller\Admin\Product;
 
 use App\Attribute\OpenApi as AOA;
 use App\Model\Admin\Category\CategoryModel;
@@ -15,16 +15,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route(path: '/api/admin/categories')]
-#[OA\Tag(name: 'categories')]
-class CreateController extends AbstractController
+#[Route(path: '/api/admin/products')]
+#[OA\Tag(name: 'products')]
+class UpdateController extends AbstractController
 {
     public function __construct(
         private readonly CreateService $createCategoryService,
     ) {
     }
 
-    #[Route(path: '', methods: [Request::METHOD_POST], format: 'json')]
+    #[Route(path: '', methods: [Request::METHOD_PUT], format: 'json')]
     #[AOA\RequestBody(type: CreateRequest::class)]
     #[AOA\ResponseOk(type: CategoryModel::class)]
     public function create(

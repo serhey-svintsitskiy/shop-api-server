@@ -17,14 +17,14 @@ use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(path: '/api/admin/categories')]
 #[OA\Tag(name: 'categories')]
-class CreateController extends AbstractController
+class UpdateController extends AbstractController
 {
     public function __construct(
         private readonly CreateService $createCategoryService,
     ) {
     }
 
-    #[Route(path: '', methods: [Request::METHOD_POST], format: 'json')]
+    #[Route(path: '', methods: [Request::METHOD_PUT], format: 'json')]
     #[AOA\RequestBody(type: CreateRequest::class)]
     #[AOA\ResponseOk(type: CategoryModel::class)]
     public function create(

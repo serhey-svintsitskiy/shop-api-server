@@ -5,7 +5,7 @@ namespace App\Service\Admin\Category;
 use App\Entity\Category;
 use App\Repository\Common\CategoryRepository;
 
-readonly class DeleteCategoryService
+readonly class DeleteService
 {
     public function __construct(
         private CategoryRepository $categoryRepository

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\Admin\Category;
+namespace App\Controller\Admin\Product;
 
 use App\Attribute\OpenApi as AOA;
 use App\Entity\Category;
@@ -14,8 +14,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route(path: '/api/admin/categories')]
-#[OA\Tag(name: 'categories')]
+#[Route(path: '/api/admin/products')]
+#[OA\Tag(name: 'products')]
 class DeleteController extends AbstractController
 {
     public function __construct(

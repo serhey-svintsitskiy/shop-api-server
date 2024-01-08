@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Model\Admin\Image;
+
+use Symfony\Component\Validator\Constraints as Assert;
+
+readonly class CreateRequest
+{
+    public function __construct(
+        #[Assert\Length(min: 3, max: 255)]
+        /*#[Assert\Regex(pattern: '^[\w\s]+$')]*/
+        public string $title,
+    ) {
+    }
+}
