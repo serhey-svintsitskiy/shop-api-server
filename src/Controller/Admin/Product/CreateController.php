@@ -28,7 +28,7 @@ class CreateController extends AbstractController
     #[AOA\RequestBody(type: CreateRequest::class)]
     #[AOA\ResponseCreated(type: ProductModel::class)]
     public function create(
-        #[MapRequestPayload(validationFailedStatusCode: Response::HTTP_UNPROCESSABLE_ENTITY)]
+        #[MapRequestPayload]
         CreateRequest $request,
     ): Response {
         $product = $this->createService->create($request);

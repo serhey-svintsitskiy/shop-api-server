@@ -28,7 +28,7 @@ class UpdateController extends AbstractController
     #[AOA\RequestBody(type: CreateRequest::class)]
     #[AOA\ResponseOk(type: CategoryModel::class)]
     public function create(
-        #[MapRequestPayload(validationFailedStatusCode: Response::HTTP_UNPROCESSABLE_ENTITY)]
+        #[MapRequestPayload]
         CreateRequest $request,
     ): Response {
         $category = $this->createCategoryService->create($request);

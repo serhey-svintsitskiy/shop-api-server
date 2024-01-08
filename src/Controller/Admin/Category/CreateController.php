@@ -26,9 +26,9 @@ class CreateController extends AbstractController
 
     #[Route(path: '', methods: [Request::METHOD_POST], format: 'json')]
     #[AOA\RequestBody(type: CreateRequest::class)]
-    #[AOA\ResponseOk(type: CategoryModel::class)]
+    #[AOA\ResponseCreated(type: CategoryModel::class)]
     public function create(
-        #[MapRequestPayload(validationFailedStatusCode: Response::HTTP_UNPROCESSABLE_ENTITY)]
+        #[MapRequestPayload]
         CreateRequest $request,
     ): Response {
         $category = $this->createCategoryService->create($request);

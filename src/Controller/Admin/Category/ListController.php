@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Admin\Category;
 
-use App\ArgumentResolver\RequestPayloadValueResolver;
+use App\Attribute\ArgumentResolver\MapQueryString;
 use App\Attribute\OpenApi as AOA;
 use App\Entity\Category;
 use App\Model\Admin\Category\ListRequest;
@@ -16,7 +16,6 @@ use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Attribute\MapQueryString;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(path: '/api/admin/categories')]
@@ -32,10 +31,7 @@ class ListController extends AbstractController
     #[AOA\QueryPageParameter]
     #[AOA\ResponseOk(type: ListResponse::class)]
     public function getList(
-        #[MapQueryString(
-            resolver: RequestPayloadValueResolver::class,
-            validationFailedStatusCode: Response::HTTP_UNPROCESSABLE_ENTITY
-        )]
+        #[MapQueryString]
         ListRequest $request,
     ): Response {
         return $this->json(

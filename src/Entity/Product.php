@@ -34,7 +34,6 @@ class Product
     #[ORM\Column(type: 'datetime', nullable: true)]
     private ?DateTimeInterface $updatedAt = null;
 
-
     /** @var Collection<int, Image> $images */
     #[ORM\ManyToMany(targetEntity: Image::class, cascade: ['persist', 'remove'], orphanRemoval: true)]
     #[ORM\JoinTable(
@@ -52,7 +51,6 @@ class Product
         inverseJoinColumns: [new ORM\JoinColumn(name: 'category_id', referencedColumnName: 'id', onDelete: 'cascade')],
     )]
     private Collection $categories;
-
 
     public function __construct()
     {
@@ -146,6 +144,22 @@ class Product
     public function setImages(Collection $images): self
     {
         $this->images = $images;
+
+        return $this;
+    }
+
+    public function addImage(Image $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): self
+    {
+        $this->images->removeElement($image);
 
         return $this;
     }

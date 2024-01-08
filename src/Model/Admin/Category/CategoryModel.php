@@ -3,6 +3,7 @@
 namespace App\Model\Admin\Category;
 
 use App\Entity\Category;
+use App\Entity\Image;
 use DateTimeInterface;
 use Symfony\Component\Uid\Ulid;
 
@@ -13,6 +14,8 @@ class CategoryModel
         public ?string $title,
         public DateTimeInterface $createdAt,
         public ?DateTimeInterface $updatedAt,
+        /** @var Image[] $images */
+        public array $images,
     ) {
     }
 
@@ -23,6 +26,7 @@ class CategoryModel
             $category->getTitle(),
             $category->getCreatedAt(),
             $category->getUpdatedAt(),
+            iterator_to_array($category->getImages()),
         );
     }
 
