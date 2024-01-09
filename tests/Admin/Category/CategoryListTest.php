@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests;
+namespace App\Tests\Admin\Category;
 
 use ApiPlatform\Symfony\Bundle\Test\ApiTestCase;
 
@@ -8,9 +8,9 @@ class CategoryListTest extends ApiTestCase
 {
     public function testSomething(): void
     {
-        $response = static::createClient()->request('GET', '/');
+        static::createClient()->request('GET', '/api/admin/categories');
 
         $this->assertResponseIsSuccessful();
-        $this->assertJsonContains(['@id' => '/']);
+        $this->assertJsonContains(['items' => []]);
     }
 }
