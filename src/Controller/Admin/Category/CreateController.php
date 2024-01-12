@@ -33,6 +33,6 @@ class CreateController extends AbstractController
     ): Response {
         $category = $this->createCategoryService->create($request);
 
-        return $this->json(CategoryModel::fromEntity($category));
+        return $this->json(CategoryModel::fromEntity($category), Response::HTTP_CREATED);
     }
 }

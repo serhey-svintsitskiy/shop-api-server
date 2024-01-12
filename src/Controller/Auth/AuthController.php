@@ -11,6 +11,7 @@ use App\Model\Auth\SignUpRequest;
 use App\Service\Auth\ChangePasswordService;
 use App\Service\Auth\SignUpService;
 use Lexik\Bundle\JWTAuthenticationBundle\Security\Http\Authentication\AuthenticationSuccessHandler;
+use OpenApi\Attributes as OA;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,6 +21,7 @@ use Symfony\Component\Security\Http\Attribute\CurrentUser;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route(path: '/api/auth')]
+#[OA\Tag(name: 'auth')]
 class AuthController extends AbstractController
 {
     public function __construct(

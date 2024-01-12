@@ -13,16 +13,38 @@ class UserFixture extends BaseFixture
     public const USER_1 = 'user1@test.com';
     public const USER_2 = 'user2@test.com';
 
+    public const PREDEFINED_USERS = [
+        [
+            'email' => self::ADMIN_1,
+            'role' => UserRole::ROLE_ADMIN,
+            'password' => 'password',
+        ],
+        [
+            'email' => self::ADMIN_2,
+            'role' => UserRole::ROLE_ADMIN,
+            'password' => 'password',
+        ],
+        [
+            'email' => self::USER_1,
+            'role' => UserRole::ROLE_USER,
+            'password' => 'password',
+        ],
+        [
+            'email' => self::USER_2,
+            'role' => UserRole::ROLE_USER,
+            'password' => 'password',
+        ],
+    ];
+
     protected function loadData(ObjectManager $manager): void
     {
         $factory = function (User $user, int $i) {
-            $roles = [UserRole::ROLE_ADMIN, UserRole::ROLE_ADMIN];
-            $role = $roles[$i] ?? UserRole::ROLE_USER;
-            $emails = [self::ADMIN_1, self::ADMIN_2, self::USER_1, self::USER_2];
+            $predefinedUsers = self::PREDEFINED_USERS;
+
             $user
-                ->setEmail($emails[$i] ?? $this->faker->freeEmail)
-                ->setPassword($this->faker->password)
-                ->setRoles([$role->value])
+                ->setEmail($predefinedUsers[$i]['email'] ?? $this->faker->freeEmail)
+                ->setPassword($predefinedUsers[$i]['password'] ?? $this->faker->password)
+                ->setRoles([($predefinedUsers[$i]['role'] ?? UserRole::ROLE_USER)->value])
                 ->setCreatedAt($this->faker->dateTimeThisYear);
         };
         $this->createMany(User::class, 4, $factory);
