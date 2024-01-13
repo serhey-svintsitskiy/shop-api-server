@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Tests\Api\Admin\Category;
+namespace Api\Admin\User;
 
 use App\DataFixtures\UserFixture;
 use App\Model\Admin\Category\CreateRequest;
+use App\Repository\Common\CategoryRepository;
 use App\Tests\Api\BaseApiTest;
 
 class CategoryCreateTest extends BaseApiTest
