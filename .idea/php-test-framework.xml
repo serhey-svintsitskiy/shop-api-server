@@ -5,8 +5,8 @@
       <tool tool_name="PHPUnit">
         <cache>
           <versions>
-            <info id="Local/home/sergey/work/shop-api-server/vendor/autoload.php" version="9.6.15" />
-            <info id="interpreter-d32c6df8-ee0a-4998-9b94-cd071a1b9fdf" version="9.6.15" />
+            <info id="Local/home/sergey/work/shop-api-server/bin/phpunit" version="10.5.6" />
+            <info id="interpreter-d32c6df8-ee0a-4998-9b94-cd071a1b9fdf" version="10.5.6" />
           </versions>
         </cache>
       </tool>

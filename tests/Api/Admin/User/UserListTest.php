@@ -5,9 +5,9 @@ namespace App\Tests\Api\Admin\User;
 use App\DataFixtures\UserFixture;
 use App\Repository\Common\CategoryRepository;
 use App\Repository\Common\UserRepository;
-use App\Tests\Api\BaseApiTest;
+use App\Tests\Api\BaseApiTestCase;
 
-class UserListTest extends BaseApiTest
+class UserListTest extends BaseApiTestCase
 {
     public function testSomething(): void
     {

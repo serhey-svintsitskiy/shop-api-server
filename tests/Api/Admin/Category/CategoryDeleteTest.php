@@ -5,11 +5,9 @@ namespace App\Tests\Api\Admin\Category;
 use App\DataFixtures\UserFixture;
 use App\Entity\Category;
 use App\Factory\CategoryFactory;
-use App\Model\Admin\Category\CreateRequest;
-use App\Repository\Common\CategoryRepository;
-use App\Tests\Api\BaseApiTest;
+use App\Tests\Api\BaseApiTestCase;
 
-class CategoryDeleteTest extends BaseApiTest
+class CategoryDeleteTest extends BaseApiTestCase
 {
     public function testSuccess(): void
     {

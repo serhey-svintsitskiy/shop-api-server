@@ -4,9 +4,9 @@ namespace App\Tests\Api\Admin\Category;
 
 use App\DataFixtures\UserFixture;
 use App\Repository\Common\CategoryRepository;
-use App\Tests\Api\BaseApiTest;
+use App\Tests\Api\BaseApiTestCase;
 
-class CategoryListTest extends BaseApiTest
+class CategoryListTest extends BaseApiTestCase
 {
     public function testSomething(): void
     {

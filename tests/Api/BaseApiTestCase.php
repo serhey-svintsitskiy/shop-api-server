@@ -7,7 +7,7 @@ use ApiPlatform\Symfony\Bundle\Test\Client;
 use App\Repository\Common\UserRepository;
 use Symfony\Component\Uid\Ulid;
 
-abstract class BaseApiTest extends ApiTestCase
+abstract class BaseApiTestCase extends ApiTestCase
 {
     public function createAuthorizedClient(string $userEmail): Client
     {

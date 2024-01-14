@@ -4,9 +4,10 @@ namespace App\Tests\Api\Admin\Category;
 
 use App\DataFixtures\UserFixture;
 use App\Model\Admin\Category\CreateRequest;
-use App\Tests\Api\BaseApiTest;
+use App\Tests\Api\BaseApiTestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
-class CategoryCreateTest extends BaseApiTest
+class CategoryCreateTest extends BaseApiTestCase
 {
     public function testSuccess(): void
     {
@@ -19,6 +20,7 @@ class CategoryCreateTest extends BaseApiTest
         $this->assertResponseStatusCodeSame(201);
     }
 
+    #[DataProvider(methodName: 'requestDataProvider')]
     public function testFailedValidation(): void
     {
         $requestData = new CreateRequest('');
@@ -28,6 +30,12 @@ class CategoryCreateTest extends BaseApiTest
 
         $this->assertResponseIsUnprocessable();
         $this->assertResponseStatusCodeSame(422);
+    }
+
+    public static function requestDataProvider(): iterable
+    {
+        yield [new CreateRequest('')];
+        yield [new CreateRequest('aa')];
     }
 
 }
